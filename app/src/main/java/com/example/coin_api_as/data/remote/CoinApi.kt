@@ -1,10 +1,9 @@
 package com.example.coin_api_as.data.remote
 
-import com.example.coin_api_as.data.remote.dto.Coin
+import com.example.coin_api_as.data.remote.dto.CoinDto
 import retrofit2.http.GET
-import retrofit2.http.Path
 
 interface CoinApi {
     @GET("/Coins")
-    suspend fun getExchange(): List<Coin>
+    suspend fun getExchange(): List<CoinDto>
 }
