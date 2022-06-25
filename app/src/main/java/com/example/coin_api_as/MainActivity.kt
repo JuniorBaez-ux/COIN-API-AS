@@ -23,7 +23,9 @@ import coil.compose.rememberAsyncImagePainter
 import com.example.coin_api_as.data.remote.dto.CoinDto
 import com.example.coin_api_as.model.CoinViewModel
 import com.example.coin_api_as.ui.theme.COINAPIASTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
