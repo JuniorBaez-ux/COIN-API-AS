@@ -74,7 +74,7 @@ fun CoinItem(
         .padding(16.dp)
     ) {
         Text(
-            text = "${coin.description}",
+            text = "${coin.descripcion}",
             style = MaterialTheme.typography.h5,
             overflow = TextOverflow.Ellipsis
         )
@@ -93,7 +93,7 @@ fun CoinItem(
             Image(
                 painter = rememberAsyncImagePainter(coin.imageUrl),
                 contentDescription = null,
-                modifier = Modifier.size(128.dp)
+                modifier = Modifier.size(128.dp),
             )
         }
 
