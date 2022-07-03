@@ -22,24 +22,13 @@ import javax.inject.Inject
 class CoinViewModel @Inject constructor(
     private val coinRepository: CoinRepository
 ) : ViewModel() {
-    var monedaId by mutableStateOf(null)
     var descripcion by mutableStateOf("")
     var valor by mutableStateOf("")
-    var imageUrl by mutableStateOf("")
+
     private var _state = mutableStateOf(CoinListState())
     val state: State<CoinListState> = _state
+
     var myResponse: MutableLiveData<Response<CoinDto>> = MutableLiveData()
-
-    init {
-        obtainCoins()
-    }
-
-    fun makePost(post: CoinDto){
-        viewModelScope.launch {
-            val response: Response<CoinDto> = coinRepository.makePost(post)
-            myResponse.value = response
-        }
-    }
 
     fun obtainCoins(){
         coinRepository.getExchanges().onEach { result ->
@@ -57,4 +46,15 @@ class CoinViewModel @Inject constructor(
             }
         }.launchIn(viewModelScope)
     }
+
+    fun makePost(){
+        viewModelScope.launch {
+            coinRepository.makePost(CoinDto(null, descripcion = descripcion, valor = valor.toDouble(), ""))
+        }
+    }
+
+    init {
+        obtainCoins()
+    }
+
 }
