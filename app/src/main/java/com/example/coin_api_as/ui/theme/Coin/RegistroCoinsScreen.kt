@@ -88,6 +88,7 @@ fun RegistroCoinsScreen(
     }
 }
 
+/*
 fun validateNumber(number:String): Boolean {
     val validation = number.toDouble()
 
@@ -96,4 +97,4 @@ fun validateNumber(number:String): Boolean {
     }else{
         return false
     }
-}
+}*/
