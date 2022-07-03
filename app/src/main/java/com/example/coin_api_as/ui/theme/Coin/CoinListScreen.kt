@@ -21,15 +21,16 @@ import com.example.coin_api_as.data.remote.dto.CoinDto
 import com.example.coin_api_as.model.CoinViewModel
 
 
-//TODO Realizar ventana de la consulta de la clase correspondiente
 
 @Composable
 fun CoinListScreen(
     navHostController: NavHostController,
     viewModel: CoinViewModel = hiltViewModel()
 ){
-    val state = viewModel.state.value
+
     val ScaffoldState = rememberScaffoldState()
+
+
 
     Scaffold(
         topBar = {
@@ -47,6 +48,8 @@ fun CoinListScreen(
         scaffoldState = ScaffoldState
 
     ) {it
+
+        val state = viewModel.state.value
         Column(modifier = Modifier.fillMaxSize()) {
             LazyColumn(modifier = Modifier.fillMaxSize()){
                 items( state.exchange){ exchange ->
