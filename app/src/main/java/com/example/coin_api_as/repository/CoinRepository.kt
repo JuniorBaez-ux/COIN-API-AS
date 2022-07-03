@@ -6,6 +6,7 @@ import com.example.coin_api_as.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
+import retrofit2.Response
 import java.io.IOException
 import javax.inject.Inject
 
@@ -26,5 +27,9 @@ class CoinRepository @Inject constructor(
             //debe verificar tu conexion a internet
             emit(Resource.Error(e.message ?: "verificar tu conexion a internet"))
         }
+    }
+
+    suspend fun makePost(post : CoinDto): Response<CoinDto>{
+        return api.makePost(post)
     }
 }
