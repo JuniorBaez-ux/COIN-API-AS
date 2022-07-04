@@ -9,8 +9,11 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -83,8 +86,9 @@ fun CoinItem(
 
         Row(
             modifier = Modifier.fillMaxWidth()
-                .height(30.dp).padding(2.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
+                .height(60.dp).padding(2.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
                 text = "${coin.valor}",
@@ -95,7 +99,7 @@ fun CoinItem(
             Image(
                 painter = rememberAsyncImagePainter(coin.imageUrl),
                 contentDescription = null,
-                modifier = Modifier.size(128.dp),
+                contentScale = ContentScale.FillHeight,
             )
         }
 
